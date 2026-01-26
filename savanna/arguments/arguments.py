@@ -203,6 +203,10 @@ class GlobalConfig(*BASE_CLASSES):
             for k, v in overwrite_values.items():
                 config[k] = v
 
+        # compatibility: allow attention-config/attention_config to map to operator_config
+        if "attention_config" in config and "operator_config" not in config:
+            config["operator_config"] = config.pop("attention_config")
+
         # instantiate class and return
         # duplicate values and unrecognized keys are again checked upon instantiation
         return cls(**config)

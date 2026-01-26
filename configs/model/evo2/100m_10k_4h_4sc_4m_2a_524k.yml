@@ -5,6 +5,7 @@
 
   "num_layers": 14,
   "hidden_size": 768,
+  "num_groups_hyena_short": 1,
   "num_attention_heads": 12, # hidden_size / num_attention_heads gives you size of each head, useful for MQA 
   "num_heads": 768, # keep this always hidden_size
     "attention-config": [
@@ -94,7 +95,7 @@
    "steps_per_print": 50,
    "keep-last-n-checkpoints": 1,
    "wall_clock_breakdown": false,
-   "save": "/checkpoint/hielab/etnguyen/checkpoints/evo2/100m_10k_4h_4sc_4m_2a_524k", # change this
+   "save": "/home/wanghanyi/savanna/checkpoints", # change this
    "tokenizer_type": CharLevelTokenizer,   
   #  "iteration": 200,
   #  "use_checkpoint_lr_scheduler": True,
@@ -109,10 +110,12 @@
   "use_wandb": true,  
   #  "tie_projection_weights": true,
 
-  # resume
-  "iteration": 10000,
-   "load": "/checkpoint/hielab/etnguyen/checkpoints/evo2/100m_10k_4h_4sc_4m_2a_524k", # change this
-  "use_checkpoint_lr_scheduler": True,  
+  # # resume
+  # "iteration": 10000,
+  #  "load": "/home/wanghanyi/savanna/checkpoints", # change this
+  # "use_checkpoint_lr_scheduler": True,  
 
+  "fast_conv_proj": false,
+  "fast_conv_mixer": false
 }
 
